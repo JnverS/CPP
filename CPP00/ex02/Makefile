@@ -1,9 +1,9 @@
 CC=g++
-CFLAGS=-c -Wall -Wextra -Werror -std=c++98
-LDFLAGS=
-SOURCES=main.cpp PhoneBook.cpp Contact.cpp
+CFLAGS=-c -Wall -Wextra -Werror -std=c++98 -I .
+LDFLAGS=-I .
+SOURCES=tests.cpp Account.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
-EXECUTABLE=phoneBook
+EXECUTABLE=accounts
 
 all: $(SOURCES) $(EXECUTABLE)
 

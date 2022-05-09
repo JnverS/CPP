@@ -1,20 +1,21 @@
 #include <iostream>
+#include "PhoneBook.h"
 
 int main() {
     std::string cmd;
+    PhoneBook phoneBook;
 
     while (1) {
         std::cout << "Введите команду: ";
-        getline(std::cin, cmd);
+        std::cin >> cmd;
 
         if (cmd == "ADD") {
-            std::cout << cmd << " save new contact" << std::endl;
+            phoneBook.AddContact();
         } else if (cmd == "SEARCH") {
-            std::cout << cmd << " find contact" << std::endl;
+            phoneBook.Search();
         } else if (cmd == "EXIT") {
-            std::cout << cmd << " end the programm" << std::endl;
+            exit(0);
         }
     }
-
     return 0;
 }

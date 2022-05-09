@@ -10,7 +10,19 @@
 
 class PhoneBook {
 public:
-   Contact contact[8];
+   PhoneBook(void);
+   ~PhoneBook();
+
+   int AddContact(void);
+   int Search(void);
+
+private:
+    Contact _phonebook[8];
+    int _index;
+    int _nbr_added;
+
+    void		_print_line(std::string, std::string, std::string, std::string);
+    void		_print_elem(std::string);
 };
 
 
