@@ -1,6 +1,6 @@
 CC=g++
 CFLAGS=-c -Wall -Wextra -Werror -std=c++98 -I .
-LDFLAGS=-I .
+LDFLAGS= -I .
 SOURCES=tests.cpp Account.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=accounts
