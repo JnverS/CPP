@@ -1,1 +1,0 @@
-CMakeLists.txt not found in /Users/egor_petrov/Repositories/CPP/CPP01/ex03 Select CMakeLists.txt
