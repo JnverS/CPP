@@ -10,10 +10,9 @@ public:
     Harl();
     ~Harl();
     void complain(std::string level);
-
 private:
-    typedef void(Harl::*Function)(void);
-    std::map<std::string,Function> _functionMap;
+    std::map<std::string,int> _logLevelMap;
+    int _logLevel;
     void _debug();
     void _info();
     void _warning();

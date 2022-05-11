@@ -2,18 +2,30 @@
 #include "Harl.h"
 
 Harl::Harl(){
-    _functionMap.insert( std::pair<std::string,Function>("debug",&Harl::_debug));
-    _functionMap.insert( std::pair<std::string,Function>("info",&Harl::_info));
-    _functionMap.insert( std::pair<std::string,Function>("warning",&Harl::_warning));
-    _functionMap.insert( std::pair<std::string,Function>("error",&Harl::_error));
+    _logLevelMap.insert( std::pair<std::string,int>("DEBUG",0));
+    _logLevelMap.insert( std::pair<std::string,int>("INFO",1));
+    _logLevelMap.insert( std::pair<std::string,int>("WARNING",2));
+    _logLevelMap.insert( std::pair<std::string,int>("ERROR",3));
 }
 
 Harl::~Harl(){
 }
 
 void Harl::complain(std::string level){
-    Function f = _functionMap.at(level);
-    (this->*f)();
+    if (_logLevelMap.count((level)))
+        _logLevel = _logLevelMap.at(level);
+    else
+        _logLevel = -1;
+
+    switch (_logLevel) {
+        case 0:_debug();
+        case 1:_info();
+        case 2:_warning();
+        case 3:_error();
+            break;
+        default:
+            std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+    }
 }
 
 void Harl::_debug(){
