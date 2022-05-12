@@ -2,18 +2,24 @@
 #include "Harl.h"
 
 Harl::Harl(){
-    _functionMap.insert( std::pair<std::string,Function>("debug",&Harl::_debug));
-    _functionMap.insert( std::pair<std::string,Function>("info",&Harl::_info));
-    _functionMap.insert( std::pair<std::string,Function>("warning",&Harl::_warning));
-    _functionMap.insert( std::pair<std::string,Function>("error",&Harl::_error));
 }
 
 Harl::~Harl(){
 }
 
 void Harl::complain(std::string level){
-    Function f = _functionMap.at(level);
-    (this->*f)();
+    std::string arrayMessage[4] = { "debug", "info", "warning", "error"};
+    t_level arrayFunctions[4] = {{&Harl::_debug}, {&Harl::_info}, {&Harl::_warning}, {&Harl::_error}};
+
+    for (int i = 0; i < 4; i++)
+    {
+        if (arrayMessage[i] == level)
+        {
+            (this->*(arrayFunctions[i].function))();
+            return;
+        }
+    }
+    std::cout << "Level not found" << std::endl;
 }
 
 void Harl::_debug(){
