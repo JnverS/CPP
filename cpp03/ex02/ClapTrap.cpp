@@ -82,18 +82,34 @@ ClapTrap::beRepaired (uint32_t amount)
     }
 }
 
-std::string ClapTrap::getName(void){
+std::string ClapTrap::getName(void) const{
     return _name;
 }
 
-int ClapTrap::getHitPoints(void){
+int ClapTrap::getHitPoints(void) const{
     return _hitPoints;
 }
 
-int ClapTrap::getEnergyPoints(void){
+int ClapTrap::getEnergyPoints(void) const{
     return _energyPoints;
 }
 
-int ClapTrap::getDamagePoints(void){
+int ClapTrap::getDamagePoints(void) const{
     return _attackDamage;
+}
+
+void ClapTrap::setName(std::string name){
+    _name = name;
+}
+
+void ClapTrap::setHitPoints(int hp){
+    _hitPoints = hp;
+}
+
+void ClapTrap::setEnergyPoints(int energy){
+    _energyPoints = energy;
+}
+
+void ClapTrap::setDamagePoints(int damage){
+    _attackDamage = damage;
 }
