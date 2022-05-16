@@ -1,7 +1,7 @@
 CC=g++
 CFLAGS=-c -Wall -Wextra -Werror -std=c++98 -I .
 LDFLAGS= -I .
-SOURCES=main.cpp
+SOURCES=main.cpp Convertor.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=form
 
