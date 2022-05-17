@@ -3,6 +3,7 @@
 #define EX00_CONVERTOR_H
 #include <iostream>
 #include <string>
+#include <iomanip>
 
 class Convertor {
 public:
@@ -22,7 +23,8 @@ private:
     double _doubleValue;
     char _charValue;
 
-    bool isPseudoLiterals(std::string);
+    std::string specialDoubleLiterals[3];
+    std::string specialFloatLiterals[3];
 
     bool tryConvertChar(std::string, char&);
     bool tryConvertInt(std::string, int&);
@@ -33,6 +35,14 @@ private:
     void castFloatLiteral(float literal);
     void castDoubleLiteral(double literal);
     void castCharLiteral(char literal);
+    void castInvalidLiteral();
 
+    bool isSpecialDoubleLiteral(const std::string& basicString, int &index);
+
+    void castSpecialDoubleLiteral(int index);
+
+    void castSpecialFloatLiteral(int index);
+
+    bool isSpecialFloatLiteral(const std::string& basicString, int &index);
 };
 #endif //EX00_CONVERTOR_H
