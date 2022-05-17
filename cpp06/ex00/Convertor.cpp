@@ -11,22 +11,12 @@ Convertor::Convertor() {
 }
 
 Convertor::Convertor(const Convertor &copy) {
-    _intValue = copy._intValue;
-    _charValue = copy._charValue;
-    _doubleValue = copy._doubleValue;
-    _floatValue = copy._floatValue;
 }
 
 Convertor::~Convertor() {
 }
 
 Convertor &Convertor::operator=(const Convertor &copy) {
-    if (this == &copy)
-        return *this;
-    this->_intValue = copy._intValue;
-    this->_charValue = copy._charValue;
-    this->_doubleValue = copy._doubleValue;
-    this->_floatValue = copy._floatValue;
     return *this;
 }
 
