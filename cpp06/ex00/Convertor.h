@@ -2,6 +2,7 @@
 #ifndef EX00_CONVERTOR_H
 #define EX00_CONVERTOR_H
 #include <iostream>
+#include <string>
 
 class Convertor {
 public:
@@ -16,15 +17,22 @@ public:
     void convert(std::string);
 
 private:
-    bool tryConvertChar(std::string);
+    int _intValue;
+    float _floatValue;
+    double _doubleValue;
+    char _charValue;
 
-    bool tryConvertInt(std::string, int &);
+    bool isPseudoLiterals(std::string);
 
-    bool tryConvertFloat(std::string);
-
-    bool tryConvertDouble(std::string);
+    bool tryConvertChar(std::string, char&);
+    bool tryConvertInt(std::string, int&);
+    bool tryConvertFloat(std::string, float&);
+    bool tryConvertDouble(std::string, double&);
 
     void castIntLiteral(int literal);
+    void castFloatLiteral(float literal);
+    void castDoubleLiteral(double literal);
+    void castCharLiteral(char literal);
 
 };
 #endif //EX00_CONVERTOR_H

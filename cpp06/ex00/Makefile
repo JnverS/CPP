@@ -3,7 +3,7 @@ CFLAGS=-c -Wall -Wextra -Werror -std=c++98 -I .
 LDFLAGS= -I .
 SOURCES=main.cpp Convertor.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
-EXECUTABLE=form
+EXECUTABLE=cast
 
 all: $(SOURCES) $(EXECUTABLE)
 
