@@ -1,12 +1,41 @@
-#include "Array.h"
+#ifndef ARRAY_TPP
+# define ARRAY_TPP
 
-template <class T, unsigned n> Array<T, n>::Array(){
+template <typename T>
+class Array{
+private:
+    T *_array;
+    size_t _len;
+public:
+    Array() : _array(NULL), _len(0){};
+    Array(unsigned len): _array(new T[len]), _len(len){};
+    Array(const Array& copy) {*this = copy;};
+    ~Array(){delete [] _array;};
 
-}
-template <class T, unsigned n> Array<T, n>::Array(unsigned){}
-template <class T, unsigned n> Array<T, n>::Array(const T& copy){}
-template <class T, unsigned n> Array<T, n>::~Array(){}
+    Array& operator = (const Array& copy) {
+        if (this == &copy) { return *this; }
+        _array = new T[copy._len];
+        _len = copy._len;
+        for (size_t i = 0; i < _len; i++)
+            _array[i] = copy._array[i];
+        return (*this);
+    }
 
-Array& template <class T, unsigned n> Array<T, n>::operator = (const T& copy){}
+    T& operator[](int elem)
+    {
+        if (elem > -1 && static_cast<uint32_t>(elem) < _len)
+            return _array[elem];
+        else
+            throw WrongIndex();
+    };
 
-unsigned template <class T, unsigned n> Array<T, n>::size(){}
+    int size(void){
+        return _len;
+    }
+    class WrongIndex : public std::exception{
+     public:
+        virtual const char * what (void) const throw() {return "Element number is out of the array";}
+    };
+};
+
+#endif

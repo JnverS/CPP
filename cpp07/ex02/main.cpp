@@ -1,54 +1,46 @@
 #include <iostream>
-#include <Array.h>
+#include "Array.h"
+#include <cstdlib>
+#include <ctime>
 
-#define MAX_VAL 750
 int main(int, char**)
 {
-    Array<int> numbers(MAX_VAL);
-    int* mirror = new int[MAX_VAL];
-    std::cout << *mirror << std::endl;
-//    srand(time(NULL));
-//    for (int i = 0; i < MAX_VAL; i++)
-//    {
-//        const int value = rand();
-//        numbers[i] = value;
-//        mirror[i] = value;
-//    }
-//    //SCOPE
-//    {
-//        Array<int> tmp = numbers;
-//        Array<int> test(tmp);
-//    }
-//
-//    for (int i = 0; i < MAX_VAL; i++)
-//    {
-//        if (mirror[i] != numbers[i])
-//        {
-//            std::cerr << "didn't save the same value!!" << std::endl;
-//            return 1;
-//        }
-//    }
-//    try
-//    {
-//        numbers[-2] = 0;
-//    }
-//    catch(const std::exception& e)
-//    {
-//        std::cerr << e.what() << '\n';
-//    }
-//    try
-//    {
-//        numbers[MAX_VAL] = 0;
-//    }
-//    catch(const std::exception& e)
-//    {
-//        std::cerr << e.what() << '\n';
-//    }
-//
-//    for (int i = 0; i < MAX_VAL; i++)
-//    {
-//        numbers[i] = rand();
-//    }
-//    delete [] mirror;
+    Array<int> empty(0);
+    Array<int> numbers(10);
+    int* tab = new int[10];
+    srand(time(NULL));
+
+    for (int i = 0; i < 10; i++)
+    {
+        const int value = rand();
+        numbers[i] = value;
+        tab[i] = value;
+    }
+
+    for (int i = 0; i < 10; i++)
+    {
+        std::cout	<< "Array[" << i << "] is " << numbers[i]
+                     << ", Tab[" << i << "] is " << tab[i] << std::endl;
+    }
+
+    try
+    {
+        numbers[-23] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+
+    try
+    {
+        numbers[10] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+
+    delete [] tab;
     return 0;
 }
