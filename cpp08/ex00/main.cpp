@@ -2,6 +2,7 @@
 #include "easyfind.h"
 
 int main() {
+    std::cout << "======================="<< std::endl;
     std::vector<int> vector;
 
     vector.push_back(0);
@@ -16,5 +17,14 @@ int main() {
     easyfind(vector, 11);
     easyfind(vector, 0);
 
+    std::cout << "======================="<< std::endl;
+    std::array<int, 5> array;
+
+    for (int i=0; i < 5; i++)
+        array[i] = i;
+
+    easyfind(array, 5);
+    easyfind(array, 11);
+    easyfind(array, 0);
     return 0;
 }

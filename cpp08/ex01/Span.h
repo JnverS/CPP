@@ -11,7 +11,6 @@ private:
     uint32_t _n;
     std::vector<int> _vector;
 public:
-    typedef std::vector<int>::iterator Iterator;
     Span();
     Span(uint32_t);
     Span(const Span&);
@@ -20,9 +19,19 @@ public:
     Span& operator = (const Span&);
 
     void addNumber(int);
+    void addNumber(std::vector<int>::iterator start, std::vector<int>::iterator end);
     int shortestSpan();
     int longestSpan();
-    void	addRange (Iterator start, Iterator end);
+
+    class enoughElements : public std::exception{
+    public:
+        virtual const char * what (void) const throw() {return "Enough elements";}
+    };
+    class fullSpan : public std::exception{
+    public:
+        virtual const char * what (void) const throw() {return "Span is full!";}
+    };
+    uint32_t size(){return _vector.size();}
 };
 
 

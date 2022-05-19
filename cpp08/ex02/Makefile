@@ -1,9 +1,9 @@
 CC=g++
 CFLAGS=-c -Wall -Wextra -Werror -std=c++98 -I .
 LDFLAGS= -I .
-SOURCES=main.cpp Span.cpp
+SOURCES=main.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
-EXECUTABLE=span
+EXECUTABLE=MutantStack
 
 all: $(SOURCES) $(EXECUTABLE)
 

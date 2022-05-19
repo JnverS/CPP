@@ -2,6 +2,7 @@
 #define EASYFIND_H
 #include <algorithm>
 #include <vector>
+#include <array>
 #include <iostream>
 
 template <typename T>
